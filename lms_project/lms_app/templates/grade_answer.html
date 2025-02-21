@@ -1,0 +1,19 @@
+<!-- lms_app/templates/grade_answer.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Выставление оценки</title>
+</head>
+<body>
+    <h1>Выставление оценки для: {{ answer.assignment.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <select name="grade">
+            <option value="зачет">Зачет</option>
+            <option value="незачет">Незачет</option>
+        </select>
+        <button type="submit">Выставить оценку</button>
+    </form>
+    <a href="{% url 'teacher_dashboard' %}">Назад</a>
+</body>
+</html>

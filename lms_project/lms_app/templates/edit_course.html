@@ -1,0 +1,29 @@
+<!-- lms_app/templates/edit_course.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редактирование курса</title>
+</head>
+<body>
+    <h1>Редактирование курса: {{ course.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ course_form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <h2>Задания курса</h2>
+    <ul>
+        {% for assignment in assignments %}
+            <li>
+                {{ assignment.title }}
+                <a href="{% url 'edit_assignment' assignment.id %}">Редактировать</a>
+                <a href="{% url 'delete_assignment' assignment.id %}">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_assignment' course.id %}">Добавить задание</a>
+    <a href="{% url 'prorector_course' %}">Назад к курсам</a>
+</body>
+</html>
+

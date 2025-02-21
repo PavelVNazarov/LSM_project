@@ -1,0 +1,53 @@
+<!-- lms_app/templates/add_course.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавить курс</title>
+</head>
+<body>
+    <h1>Добавить новый курс</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Название курса:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="description">Описание курса:</label>
+        <input type="text" id="description" name="description" required>
+        <br>
+
+        <h2>Задания</h2>
+        <div id="assignments">
+            <div class="assignment">
+                <label for="assignment_title">Название задания:</label>
+                <input type="text" name="assignment_titles" required>
+                <br>
+                <label for="assignment_description">Описание задания:</label>
+                <input type="text" name="assignment_descriptions" required>
+                <br>
+            </div>
+        </div>
+        <button type="button" onclick="addAssignment()">Добавить задание</button>
+        <br>
+        <button type="submit">Сохранить курс</button>
+    </form>
+    <a href="{% url 'prorector_dashboard' %}">Назад</a>
+
+    <script>
+        function addAssignment() {
+            const assignmentsDiv = document.getElementById('assignments');
+            const newAssignment = document.createElement('div');
+            newAssignment.classList.add('assignment');
+            newAssignment.innerHTML = `
+                <label for="assignment_title">Название задания:</label>
+                <input type="text" name="assignment_titles" required>
+                <br>
+                <label for="assignment_description">Описание задания:</label>
+                <input type="text" name="assignment_descriptions" required>
+                <br>
+            `;
+            assignmentsDiv.appendChild(newAssignment);
+        }
+    </script>
+</body>
+</html>
+

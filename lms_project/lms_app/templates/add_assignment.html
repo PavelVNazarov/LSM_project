@@ -1,0 +1,17 @@
+<!-- lms_app/templates/add_assignment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление задания</title>
+</head>
+<body>
+    <h1>Добавление задания для курса: {{ course.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ assignment_form.as_p }}
+        <button type="submit">Добавить задание</button>
+    </form>
+    <a href="{% url 'edit_course' course.id %}">Назад к редактированию курса</a>
+</body>
+</html>
+

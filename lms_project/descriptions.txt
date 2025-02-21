@@ -1,0 +1,37 @@
+lms_project/
+│
+├── lms_app/                # Основное приложение
+│   ├── migrations/         # Миграции базы данных
+│   ├── __init__.py
+│   ├── admin.py            # Настройки админки
+│   ├── apps.py
+│   ├── models.py           # Модели базы данных
+│   ├── views.py            # Логика представлений
+│   ├── urls.py             # URL маршруты
+│   ├── forms.py            # Формы для аутентификации и других действий
+│   └── templates/          # Шаблоны HTML
+│       ├── login.html
+│       ├── home.html
+│       ├── prorector_dashboard.html
+│       ├── prorector_student.html
+│       ├── prorector_teacher.html
+│       ├── add_student.html
+│       ├── edit_student.html
+│       ├── add_teacher.html
+│       └── edit_teacher.html
+│
+├── lms_project/            # Настройки проекта
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── manage.py
+
+superadmin
+1234
+
+stepa_70
+1970
+
+docent
+1970

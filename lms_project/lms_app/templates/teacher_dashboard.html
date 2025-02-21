@@ -1,0 +1,15 @@
+<!-- teacher_dashboard.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет преподавателя</title>
+</head>
+<body>
+    <h1>Личный кабинет преподавателя</h1>
+    <p>Имя: {{ teacher.name }}</p>
+    <p>Email: {{ teacher.email }}</p>
+    <p>Логин: {{ teacher.login }}</p>
+    <a href="{% url 'home' %}">Назад</a>
+</body>
+</html>

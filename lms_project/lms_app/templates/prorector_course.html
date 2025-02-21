@@ -1,0 +1,35 @@
+<!-- lms_app/templates/prorector_course.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Панель проректора</title>
+</head>
+<body>
+    <h1>Панель проректора</h1>
+    <h2>Учебные курсы</h2>
+    <ul>
+        {% for course in courses %}
+            <li>
+                <form method="post" action="{% url 'edit_course' course.id %}">
+                    {% csrf_token %}
+                    <label for="title">Название курса:</label>
+                    <input type="text" id="title" name="title" value="{{ course.title }}" required>
+                    <br>
+                    <label for="description">Описание учебного курса:</label>
+                    <input type="text" id="description" name="description" value="{{ course.description }}" required>
+                    <br>
+
+                    <button type="submit">Сохранить</button>
+                    <a href="{% url 'delete_course' course.id %}">Удалить</a>
+                </form>
+                <a href="{% url 'prorector_assignment' course.id %}">Посмотреть задания</a>  <!-- Ссылка на задания курса -->
+                <p> </p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_course' %}">Добавить курс </a>
+    <p> </p>
+    <a href="{% url 'prorector_dashboard'%}">Назад</a>
+</body>
+</html>
+

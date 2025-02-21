@@ -1,0 +1,17 @@
+<!-- lms_app/templates/edit_assignment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редактирование задания</title>
+</head>
+<body>
+    <h1>Редактирование задания</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ assignment_form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'prorector_assignment' assignment.course.id %}">Назад к заданиям</a>
+</body>
+</html>
+

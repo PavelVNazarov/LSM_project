@@ -1,0 +1,25 @@
+<!-- lms_app/templates/student_assignment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задания курса</title>
+</head>
+<body>
+    <h1>Задания для курса: {{ course.title }}</h1>
+    <h2>Список заданий</h2>
+    <ul>
+        {% if assignments %}
+            {% for assignment in assignments %}
+                <li>
+                    {{ assignment.title }}
+                    <p>Описание учебного задания: {{ assignment.description }}</p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Нет заданий для этого курса.</li>
+        {% endif %}
+    </ul>
+
+</body>
+</html>
+
