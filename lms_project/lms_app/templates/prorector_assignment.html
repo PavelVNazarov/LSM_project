@@ -13,7 +13,7 @@
                 <li>
                     {{ assignment.title }}
                     <a href="{% url 'edit_assignment' assignment.id %}">Редактировать</a>
-                    <a href="{% url 'delete_assignment' assignment.id %}">Удалить</a>
+                    <a href="{% url 'delete_assignment' assignment.id %}" onclick="return confirm('Вы действительно хотите удалить задание {{ assignment.title }}?')">Удалить</a>
                 </li>
             {% endfor %}
         {% else %}

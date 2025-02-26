@@ -20,9 +20,9 @@
                     <br>
 
                     <button type="submit">Сохранить</button>
-                    <a href="{% url 'delete_course' course.id %}">Удалить</a>
+                    <a href="{% url 'delete_course' course.id %}" onclick="return confirm('Вы уверены, что хотите удалить курс {{ course.title }}?')">Удалить</a>
                 </form>
-                <a href="{% url 'prorector_assignment' course.id %}">Посмотреть задания</a>  <!-- Ссылка на задания курса -->
+                <a href="{% url 'prorector_assignment' course.id %}">Посмотреть задания</a>
                 <p> </p>
             </li>
         {% endfor %}
@@ -32,4 +32,5 @@
     <a href="{% url 'prorector_dashboard'%}">Назад</a>
 </body>
 </html>
+
 

@@ -14,7 +14,7 @@
                     {% csrf_token %}
                     <p>Имя: {{ teacher.name }}</p>
                     <a href="{% url 'edit_teacher' teacher.id %}">Редактировать</a>
-                    <a href="{% url 'delete_teacher' teacher.id %}">Удалить</a>
+                    <a href="{% url 'delete_teacher' teacher.id %}" onclick="return confirm('Вы действительно хотите удалить преподавателя {{ teacher.name }}?')">Удалить</a>
                     <p> </p>
                 </form>
             </li>
@@ -25,3 +25,4 @@
     <a href="{% url 'prorector_dashboard'%}">Назад</a>
 </body>
 </html>
+
