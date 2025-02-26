@@ -1,0 +1,32 @@
+<!-- lms_app/templates/edit_teacher.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать преподавателя</title>
+</head>
+<body>
+    <h1>Редактировать преподавателя</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" value="{{ teacher.name }}" required>
+        <br>
+        <label for="login">Логин:</label>
+        <input type="text" id="login" name="login" value="{{ teacher.login }}" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="text" id="password" name="password" value="{{ teacher.password }}"required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ teacher.email }}" required>
+        <br>
+        <label for="role">Роль:</label>
+        <input type="text" id="role" name="role" value="{{ teacher.role }}" required>
+        <br>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'prorector_dashboard'%}">Назад</a>
+</body>
+</html>
+

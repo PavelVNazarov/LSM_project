@@ -1,0 +1,28 @@
+<!-- lms_app/templates/prorector_student.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Панель проректора</title>
+</head>
+<body>
+    <h1>Панель проректора</h1>
+    <h2>Студенты</h2>
+    <ul>
+        {% for student in students %}
+            <li>
+                <form method="post" action="{% url 'edit_student' student.id %}">
+                    {% csrf_token %}
+                    <p>Имя: {{ student.name }}</p>
+                    <a href="{% url 'edit_student' student.id %}">Редактировать</a>
+                    <a href="{% url 'delete_student' student.id %}" onclick="return confirm('Вы действительно хотите удалить студента {{ student.name }}?')">Удалить</a>
+                    <p> </p>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_student' %}">Добавить студента</a>
+    <p> </p>
+    <a href="{% url 'prorector_dashboard'%}">Назад</a>
+</body>
+</html>
+

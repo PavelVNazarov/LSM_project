@@ -1,0 +1,17 @@
+<!-- lms_app/templates/create_course.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создание курса</title>
+</head>
+<body>
+    <h1>Создание нового курса</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ course_form.as_p }}
+        <button type="submit">Создать курс</button>
+    </form>
+    <a href="{% url 'prorector_dashboard' %}">Назад</a>
+</body>
+</html>
+

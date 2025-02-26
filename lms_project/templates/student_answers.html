@@ -1,0 +1,26 @@
+<!-- lms_app/templates/student_answers.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ответы студента: {{ student.user.username }}</title>
+</head>
+<body>
+    <h1>Ответы студента: {{ student.user.username }}</h1>
+    <ul>
+        {% for answer in answers %}
+            <li>
+                {{ answer.assignment.title }}: {{ answer.response }} - Оценка: {{ answer.grade }}
+                <form method="post">
+                    {% csrf_token %}
+                    <select name="grade">
+                        <option value="Зачет">Зачет</option>
+                        <option value="Незачет">Незачет</option>
+                    </select>
+                    <button type="submit">Дать оценку</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logout' %}">Выйти</a>
+</body>
+</html>

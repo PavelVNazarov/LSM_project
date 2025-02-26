@@ -1,0 +1,27 @@
+<!-- lms_app/templates/prorector_assignment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задания курса</title>
+</head>
+<body>
+    <h1>Задания для курса: {{ course.title }}</h1>
+    <h2>Список заданий</h2>
+    <ul>
+        {% if assignments %}
+            {% for assignment in assignments %}
+                <li>
+                    {{ assignment.title }}
+                    <a href="{% url 'edit_assignment' assignment.id %}">Редактировать</a>
+                    <a href="{% url 'delete_assignment' assignment.id %}" onclick="return confirm('Вы действительно хотите удалить задание {{ assignment.title }}?')">Удалить</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Нет заданий для этого курса.</li>
+        {% endif %}
+    </ul>
+    <a href="{% url 'add_assignment' course.id %}">Добавить задание</a>
+    <a href="{% url 'prorector_course' %}">Назад к курсам</a>
+</body>
+</html>
+

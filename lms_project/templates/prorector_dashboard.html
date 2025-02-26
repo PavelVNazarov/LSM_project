@@ -1,0 +1,23 @@
+<!-- lms_app/templates/prorector_dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Панель проректора</title>
+</head>
+<body>
+    <h1>Панель проректора</h1>
+    <h2>Преподаватели</h2>
+    <a href="{% url 'prorector_teacher' %}">Смотреть список преподавателей</a>
+
+    <h2>Студенты</h2>
+    <a href="{% url 'prorector_student' %}">Смотреть список студентов</a>
+    <p> </p>
+
+    <h2>Курсы</h2>
+    <a href="{% url 'prorector_course' %}">Смотреть список курсов</a>
+    <p> </p>
+    <a href="{% url 'home'%}">Выйти</a>
+</body>
+</html>
+
+
